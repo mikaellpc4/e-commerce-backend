@@ -1,6 +1,6 @@
 import express from 'express'
-import admRouter from './src/routes/admRoutes'
-import userRouter from './src/routes/userRoutes'
+import admRouter from '@routes/admRoutes'
+import userRouter from '@routes/userRoutes'
 
 const app = express()
 const port = 3000
