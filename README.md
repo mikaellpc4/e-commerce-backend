@@ -45,3 +45,17 @@ Caso não possua essa tipagem, é necessario criar as tipagens para aquela depen
 
 > Normalmente essas dependencias que tem relação com TypeScript devem ser colocadas como dependencias de desenvolvimentos já que elas não são utilizadas quando o após a build que transforma o TS em JS
 
+<hr />
+
+#### Eslint
+
+- O Eslint nada mais é do que uma ferramenta que busca padronizar o codigo baseado nas configurações presentes no seu JSON
+- Ele vai reforçar para que o padrão escolhido seja mantido durante todo o codigo
+
+##### Iniciando ESLINT no projeto
+
+- Para adicionar o Eslint no projeto basta utilizar
+
+> npm init @eslint/config
+
+> É recomendado baixar a extensão do Eslint no Vscode e habilitar o formatar ao salvar, assim sempre que seu codigo for salvo o Eslint tentara corrigir os erros mais simples presentes no seu codigo
