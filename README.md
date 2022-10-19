@@ -1,5 +1,7 @@
 ### Backend para e-commerce
 
+> Este projeto tem como objetivo ajudar meus amigos que estão aprendendo NodeJS com TypeScript
+
 #### Iniciando projeto
 
 - Inicie o projeto com o instalador de pacotes de sua preferencia
@@ -11,7 +13,7 @@ npm init
 
 ##### yarn
 ```
-yarn
+yarn init
 ```
 <hr />
 
