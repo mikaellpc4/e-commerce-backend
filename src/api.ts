@@ -6,6 +6,8 @@ import apiErrorHandler from 'middlewares/errorHandler';
 const app = express();
 const port = 3000;
 
+app.use(express.json()); // Allow recieve JSON as data from Posts
+
 app.use(userRouter);
 app.use(admRouter);
 app.use(apiErrorHandler);
