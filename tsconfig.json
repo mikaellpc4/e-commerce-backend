@@ -26,6 +26,9 @@
         "skipLibCheck": true,
         "baseUrl": "./src",
         "paths": {
+            "@config/*": [
+                "config/*"
+            ],
             "@routes/*": [
                 "routes/*"
             ],
@@ -34,6 +37,15 @@
             ],
             "@controllers/*": [
                 "controllers/*"
+            ],
+            "@entities/*": [
+                "entities/*"
+            ],
+            "@repositories/*": [
+                "repositories/*"
+            ],
+            "@validations/*": [
+                "validations/*"
             ]
         },
     },
