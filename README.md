@@ -43,7 +43,7 @@ Caso não possua essa tipagem, é necessario criar as tipagens para aquela depen
   - typescript
   - @types/node
   - ts-node-dev
-  - ts-config-paths
+  - tsconfig-paths
 
 > Normalmente essas dependencias que tem relação com TypeScript devem ser colocadas como dependencias de desenvolvimentos já que elas não são utilizadas quando o após a build que transforma o TS em JS
 
