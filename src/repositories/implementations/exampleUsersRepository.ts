@@ -3,27 +3,39 @@ import IUsersRepository from '@repositories/IUsersRepository';
 
 // Fictitious repository
 
-const userRepo:User[] = [];
-
 class ExampleUsersRepository implements IUsersRepository {
-  emailExists(email: string): Promise<boolean> {
+  private userRepo: User[] = [];
 
+  async emailExists(email: string): Promise<boolean> {
+    const findedUser = this.userRepo.find((user) => user.getEmail() === email);
+    if (findedUser) {
+      return true;
+    }
+    return false;
   }
 
-  cpfExists(cpf: string): Promise<boolean> {
-
+  async cpfExists(cpf: string): Promise<boolean> {
+    const findedUser = this.userRepo.find((user) => user.getCpf() === cpf);
+    if (findedUser) {
+      return true;
+    }
+    return false;
   }
 
-  phoneExists(phone: string): Promise<boolean> {
-
+  async phoneExists(phone: string): Promise<boolean> {
+    const findedUser = this.userRepo.find((user) => user.getPhone() === phone);
+    if (findedUser) {
+      return true;
+    }
+    return false;
   }
 
   async save(user: User): Promise<void> {
-    userRepo.push(user);
+    this.userRepo.push(user);
   }
 
   async getUsers(): Promise<User[]> {
-    return userRepo;
+    return this.userRepo;
   }
 }
 

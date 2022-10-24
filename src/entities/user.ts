@@ -44,12 +44,24 @@ export default class User {
     return this.props.name;
   }
 
-  getRole() {
-    return this.props.role;
+  getCpf() {
+    return this.props.cpf;
   }
 
-  getProps() {
-    return this.props;
+  getPhone() {
+    return this.props.phone;
+  }
+
+  getEmail() {
+    return this.props.email;
+  }
+
+  getPassword() {
+    return this.props.password;
+  }
+
+  getRole() {
+    return this.props.role;
   }
 
   // updateData(newData: userProps):void {
