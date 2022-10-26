@@ -17,9 +17,9 @@ userRouter.post('/user/register', async (req, res, next) => {
 });
 
 userRouter.post('/user/login', async (req, res, next) => {
-  await loginUserController.handle(req, next);
+  const refreshToken = await loginUserController.handle(req, next);
   if (res.headersSent === false) {
-    return res.status(200).json({ message: 'Logado com sucesso' });
+    return res.status(200).json({ message: 'Logado com sucesso', refreshToken });
   }
   return null;
 });

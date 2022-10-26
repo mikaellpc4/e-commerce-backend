@@ -6,8 +6,8 @@ export default class LoginUserController {
     private loginUserUseCase: LoginUserUseCase,
   ) { }
 
-  async handle(req: Req, next: Next): Promise<void> {
+  async handle(req: Req, next: Next): Promise<string | null> {
     const data: ILoginUserRequestDTO = req.body;
-    await this.loginUserUseCase.execute(next, data);
+    return this.loginUserUseCase.execute(next, data);
   }
 }

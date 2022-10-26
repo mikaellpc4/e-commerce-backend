@@ -5,7 +5,6 @@ import apiErrorHandler from 'middlewares/errorHandler';
 import dotenv from 'dotenv';
 
 dotenv.config();
-console.log(process.env.SEGREDO);
 
 const app = express();
 const port = 3000;
