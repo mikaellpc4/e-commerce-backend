@@ -7,6 +7,11 @@ import bcrypt from 'bcrypt';
 class ExampleUsersRepository implements IUsersRepository {
   private userRepo: User[] = [];
 
+  async getUserById(id: string): Promise<User | undefined> {
+    const findedUser = this.userRepo.filter((user) => user.getId() === id);
+    return findedUser[0];
+  }
+
   async getUserByEmail(email: string): Promise<User | undefined> {
     const findedUser = this.userRepo.filter((user) => user.getEmail() === email);
     return findedUser[0];
@@ -22,12 +27,12 @@ class ExampleUsersRepository implements IUsersRepository {
     return findedUser[0];
   }
 
-  async save(user: User): Promise<void> {
-    this.userRepo.push(user);
-  }
-
   async getUsers(): Promise<User[]> {
     return this.userRepo;
+  }
+
+  async save(user: User): Promise<void> {
+    this.userRepo.push(user);
   }
 
   async login(login: string, password: string): Promise<User | null> {
@@ -40,6 +45,34 @@ class ExampleUsersRepository implements IUsersRepository {
       }
     }
     return null;
+  }
+
+  async addRefreshToken(userId: string, refreshToken: string): Promise<void> {
+    const findedUser = this.userRepo.filter((user) => user.getId() === userId);
+    const oldRefreshTokens = findedUser[0].getRefreshTokens();
+    if (oldRefreshTokens !== undefined) {
+      findedUser[0].setRefreshTokens([...oldRefreshTokens, refreshToken]);
+      return;
+    }
+    findedUser[0].setRefreshTokens([refreshToken]);
+  }
+
+  async removeRefreshToken(refreshToken: string): Promise<void> {
+    const findedUser = this.userRepo.filter((user) => {
+      const indexUser = user.getRefreshTokens()?.includes(refreshToken);
+      return indexUser;
+    });
+    if (findedUser[0]) {
+      const allUserRefreshTokens = findedUser[0].getRefreshTokens();
+      if (allUserRefreshTokens) {
+        const index = allUserRefreshTokens.indexOf(refreshToken);
+        // remove the founded index item
+        allUserRefreshTokens.splice(index, 1);
+        findedUser[0].setRefreshTokens(allUserRefreshTokens);
+        return;
+      }
+      findedUser[0].setRefreshTokens([]);
+    }
   }
 }
 

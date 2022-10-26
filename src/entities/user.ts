@@ -10,6 +10,7 @@ interface UserProps {
   birthday: string;
   email: string;
   password: string;
+  refreshTokens?: string[];
   role?: Role;
   createdAt?: number;
   updatedAt?: number;
@@ -62,6 +63,14 @@ export default class User {
 
   getRole() {
     return this.props.role;
+  }
+
+  getRefreshTokens() {
+    return this.props.refreshTokens;
+  }
+
+  setRefreshTokens(refreshTokens: string[]) {
+    this.props.refreshTokens = refreshTokens;
   }
 
   // updateData(newData: userProps):void {

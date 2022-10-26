@@ -41,8 +41,14 @@
             "@entities/*": [
                 "entities/*"
             ],
+            "@middlewares/*": [
+                "middlewares/*"
+            ],
             "@repositories/*": [
                 "repositories/*"
+            ],
+            "@useCases/*": [
+                "useCases/*"
             ],
             "@validations/*": [
                 "validations/*"
