@@ -3,8 +3,9 @@ import usersRepository from '@config/repositories';
 const isValid = {
   // Hegex logics
   email(email: string) {
-    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
-    // qualquercoisa@qualquercoisa.algo
+    const valid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+    return valid;
+    // qual-quer-co.i.sa@qual-quer-co.i.sa.algo
   },
   phone(phone: string) {
     return /^\([1-9]{2}\) 9[1-9][0-9]{3}-[0-9]{4}$/.test(phone);
@@ -22,13 +23,22 @@ const isValid = {
 
 const exists = {
   async email(email: string) {
-    return usersRepository.emailExists(email);
+    if (await usersRepository.getUserByEmail(email) !== undefined) {
+      return true;
+    }
+    return false;
   },
   async phone(phone: string) {
-    return usersRepository.phoneExists(phone);
+    if (await usersRepository.getUserByPhone(phone) !== undefined) {
+      return true;
+    }
+    return false;
   },
   async cpf(cpf: string) {
-    return usersRepository.cpfExists(cpf);
+    if (await usersRepository.getUserByCpf(cpf) !== undefined) {
+      return true;
+    }
+    return false;
   },
 };
 
