@@ -2,6 +2,10 @@ import express from 'express';
 import admRouter from '@routes/admRoutes';
 import userRouter from '@routes/userRoutes';
 import apiErrorHandler from 'middlewares/errorHandler';
+import dotenv from 'dotenv';
+
+dotenv.config();
+console.log(process.env.SEGREDO);
 
 const app = express();
 const port = 3000;

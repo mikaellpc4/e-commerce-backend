@@ -1,2 +1,2 @@
 node_modules
-  .env;
+# .env <-- Use this in a real open source project
