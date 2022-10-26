@@ -1,2 +1,3 @@
 node_modules
+dist
 # .env <-- Use this in a real open source project

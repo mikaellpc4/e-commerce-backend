@@ -2,8 +2,7 @@ import { loginUserController } from '@useCases/user/loginUser';
 import { registerUserController } from '@useCases/user/registerUser';
 import usersRepository from '@config/repositories';
 import express from 'express';
-import bcrypt from 'bcrypt';
-import isAuth from 'middlewares/isAuth';
+import isAuth from '@middlewares/isAuth';
 
 const userRouter = express.Router();
 

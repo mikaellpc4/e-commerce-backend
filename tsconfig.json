@@ -1,58 +1,61 @@
 {
-    "compilerOptions": {
-        "sourceMap": true,
-        "target": "es2016",
-        "lib": [
-            "es6"
-        ],
-        "module": "commonjs",
-        "rootDir": "src",
-        "rootDirs": [
-            "src"
-        ],
-        "typeRoots": [
-            "./src/types/*",
-            "./node_modules/@types",
-            "node"
-        ],
-        "resolveJsonModule": true,
-        "allowJs": true,
-        "outDir": "dist",
-        "removeComments": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "noImplicitAny": true,
-        "skipLibCheck": true,
-        "baseUrl": "./src",
-        "paths": {
-            "@config/*": [
-                "config/*"
-            ],
-            "@routes/*": [
-                "routes/*"
-            ],
-            "@types/*":[
-                "types/*"
-            ],
-            "@controllers/*": [
-                "controllers/*"
-            ],
-            "@entities/*": [
-                "entities/*"
-            ],
-            "@middlewares/*": [
-                "middlewares/*"
-            ],
-            "@repositories/*": [
-                "repositories/*"
-            ],
-            "@useCases/*": [
-                "useCases/*"
-            ],
-            "@validations/*": [
-                "validations/*"
-            ]
-        },
-    },
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es2016",
+    "lib": [
+      "es6"
+    ],
+    "module": "commonjs",
+    "rootDir": "src",
+    "rootDirs": [
+      "src"
+    ],
+    "typeRoots": [
+      "./src/types/*",
+      "./node_modules/@types",
+      "node"
+    ],
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@config/*": [
+        "config/*"
+      ],
+      "@routes/*": [
+        "routes/*"
+      ],
+      "@types/*": [
+        "types/*"
+      ],
+      "@controllers/*": [
+        "controllers/*"
+      ],
+      "@entities/*": [
+        "entities/*"
+      ],
+      "@middlewares/*": [
+        "middlewares/*"
+      ],
+      "@repositories/*": [
+        "repositories/*"
+      ],
+      "@useCases/*": [
+        "useCases/*"
+      ],
+      "@validations/*": [
+        "validations/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }

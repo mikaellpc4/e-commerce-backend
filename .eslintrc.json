@@ -1,57 +1,57 @@
 {
-    "env": {
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "airbnb-base",
-        //  Config  for types   folder
-        "plugin:@typescript-eslint/recommended"
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base",
+    //  Config  for types   folder
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
+  "rules": {
+    // "no-console": "off",
+    "no-useless-constructor": "off",
+    "class-methods-use-this": "off",
+    //  Allow   Dev Dependencies
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest"
-    },
-    "plugins": [
-        "@typescript-eslint",
-        "import"
-    ],
-    "rules": {
-        //  "no-console":   "off"
-        "no-useless-constructor": "off",
-        "class-methods-use-this": "off",
-        //  Allow   Dev Dependencies
-        "import/no-extraneous-dependencies": [
-            "error",
-            {
-                "devDependencies": true
-            }
-        ],
-        // Ignore the need of .extension in imports 
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-                "js": "never",
-                "jsx": "never",
-                "ts": "never",
-                "tsx": "never"
-            }
-        ]
-    },
-    "settings": {
-        // Accept @paths
-        "import/resolver": {
-            "typescript": {
-                "node": {
-                    "extensions": [
-                        ".js",
-                        ".jsx",
-                        ".ts",
-                        ".tsx"
-                    ]
-                }
-            }
+    // Ignore the need of .extension in imports 
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    // Accept @paths
+    "import/resolver": {
+      "typescript": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
         }
+      }
     }
+  }
 }

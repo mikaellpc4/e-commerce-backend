@@ -1,7 +1,7 @@
 import express from 'express';
 import admRouter from '@routes/admRoutes';
 import userRouter from '@routes/userRoutes';
-import apiErrorHandler from 'middlewares/errorHandler';
+import apiErrorHandler from '@middlewares/errorHandler';
 import dotenv from 'dotenv';
 
 dotenv.config();
