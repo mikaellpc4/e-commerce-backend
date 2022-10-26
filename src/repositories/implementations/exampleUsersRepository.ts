@@ -1,33 +1,25 @@
 import User from '@entities/user';
 import IUsersRepository from '@repositories/IUsersRepository';
+import bcrypt from 'bcrypt';
 
 // Fictitious repository
 
 class ExampleUsersRepository implements IUsersRepository {
   private userRepo: User[] = [];
 
-  async emailExists(email: string): Promise<boolean> {
-    const findedUser = this.userRepo.find((user) => user.getEmail() === email);
-    if (findedUser) {
-      return true;
-    }
-    return false;
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const findedUser = this.userRepo.filter((user) => user.getEmail() === email);
+    return findedUser[0];
   }
 
-  async cpfExists(cpf: string): Promise<boolean> {
-    const findedUser = this.userRepo.find((user) => user.getCpf() === cpf);
-    if (findedUser) {
-      return true;
-    }
-    return false;
+  async getUserByCpf(cpf: string): Promise<User | undefined> {
+    const findedUser = this.userRepo.filter((user) => user.getCpf() === cpf);
+    return findedUser[0];
   }
 
-  async phoneExists(phone: string): Promise<boolean> {
-    const findedUser = this.userRepo.find((user) => user.getPhone() === phone);
-    if (findedUser) {
-      return true;
-    }
-    return false;
+  async getUserByPhone(phone: string): Promise<User | undefined> {
+    const findedUser = this.userRepo.filter((user) => user.getPhone() === phone);
+    return findedUser[0];
   }
 
   async save(user: User): Promise<void> {
@@ -36,6 +28,18 @@ class ExampleUsersRepository implements IUsersRepository {
 
   async getUsers(): Promise<User[]> {
     return this.userRepo;
+  }
+
+  async login(login: string, password: string): Promise<User | null> {
+    const findedUser = await this.getUserByEmail(login);
+    if (findedUser instanceof User) {
+      const userPassword = findedUser.getPassword();
+      const passwordMatches = await bcrypt.compare(password, userPassword);
+      if (passwordMatches === true) {
+        return findedUser;
+      }
+    }
+    return null;
   }
 }
 

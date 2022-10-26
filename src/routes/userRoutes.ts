@@ -2,6 +2,7 @@ import { loginUserController } from 'useCases/user/loginUser';
 import { registerUserController } from 'useCases/user/registerUser';
 import usersRepository from '@config/repositories';
 import express from 'express';
+import bcrypt from 'bcrypt';
 
 const userRouter = express.Router();
 
@@ -25,6 +26,7 @@ userRouter.post('/user/login', async (req, res, next) => {
 
 // Only for tests
 userRouter.get('/user/get', async (req, res) => {
+  const salt = await bcrypt.genSalt(10);
   const users = await usersRepository.getUsers();
   return res.status(200).json({ message: 'Usuarios', users });
 });
