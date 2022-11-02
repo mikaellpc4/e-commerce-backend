@@ -2,6 +2,10 @@
 
 > Este projeto tem como objetivo ajudar meus amigos que estão aprendendo NodeJS com TypeScript
 
+> Este projeto está sendo feito com NodeJS, TS, Express, JWToken e PostgreSQL ( Ainda não implementado )
+
+> Tera conexão direta com o projeto projeto https://github.com/mikaellpc4/e-commerce-frontend
+
 #### Iniciando projeto
 
 - Inicie o projeto com o instalador de pacotes de sua preferencia
